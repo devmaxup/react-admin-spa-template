@@ -1,6 +1,6 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
-import imageUploadProvider from '../dataProviders/imageUploadProvider';
+import restWithFileUploadProvider from '../dataProviders/restWithFileUploadProvider';
 import authProvider from '../dataProviders/authProvider';
 
 import UsersList from './Users/UserList';
@@ -8,7 +8,7 @@ import CreateUser from './Users/CreateUser';
 import EditUsers from './Users/EditUser';
 
 export default () => (
-  <Admin dataProvider={imageUploadProvider} authProvider={authProvider}>
+  <Admin dataProvider={restWithFileUploadProvider} authProvider={authProvider}>
     <Resource
       name="users"
       list={UsersList}
