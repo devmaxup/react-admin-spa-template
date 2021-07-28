@@ -15,7 +15,9 @@ const sendFilesAsFormDataElseJson = (method, resource, params) => {
 
   // fallback to the default implementation
   if (!hasFiles) {
-    return dataProvider.create(resource, params);
+    return method === 'POST'
+      ? dataProvider.create(resource, params)
+      : dataProvider.update(resource, params);
   }
 
   const formData = new FormData();
